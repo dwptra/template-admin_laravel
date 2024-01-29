@@ -69,7 +69,7 @@
                         </div>
                     </div>
                     <div class="simple-footer">
-                        Copyright &copy; Kasir 2024
+                        Copyright &copy; dwptra 2024
                     </div>
                 </div>
             </div>

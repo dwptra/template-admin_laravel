@@ -10,16 +10,20 @@
     <ul class="navbar-nav navbar-right">
         <li class="dropdown"><a href="#" data-toggle="dropdown"
                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                <img alt="image" src="{{ asset('assets/dist/img/avatar/avatar-1.png') }}" class="rounded-circle mr-1">
-                <div class="d-sm-none d-lg-inline-block" title="{{ Auth::user()->name }}">Hi, {{ Str::limit(Auth::user()->name, 5) }}</div>
+                <img alt="image" src="{{ asset('assets/dist/img/avatar/avatar-1.png') }}"
+                    class="rounded-circle mr-1">
+                <div class="d-sm-none d-lg-inline-block" title="{{ Auth::user()->name }}">Hi,
+                    {{ Str::limit(Auth::user()->name, 5) }}</div>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
-                <div class="dropdown-title">Logged in {{ date("i",strtotime(Auth::user()->last_login)) }} minute ago</div>
-                <a href="{{ route("profile") }}" class="dropdown-item has-icon">
+                <div class="dropdown-title">Logged in
+                    {{ \Carbon\Carbon::createFromTimeStamp(strtotime(Auth::user()->last_login))->diffInMinutes() }}
+                    minute ago</div>
+                <a href="{{ route('profile') }}" class="dropdown-item has-icon">
                     <i class="far fa-user"></i> Profile
                 </a>
                 <div class="dropdown-divider"></div>
-                <a href="{{ route("auth.logout") }}" class="dropdown-item has-icon text-danger">
+                <a href="{{ route('auth.logout') }}" class="dropdown-item has-icon text-danger">
                     <i class="fas fa-sign-out-alt"></i> Logout
                 </a>
             </div>
